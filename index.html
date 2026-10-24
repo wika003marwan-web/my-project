@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marwan Mohamed Eid - Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0f;--card:#12121a;--neon:#00ff88;--neon2:#7c3aed;--text:#e5e7eb;--muted:#9ca3af}
+body{background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;overflow-x:hidden}
+::selection{background:var(--neon);color:#000}
+nav{position:fixed;top:0;width:100%;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 6%;background:rgba(10,10,15,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #222}
+.logo{font-family:'JetBrains Mono';font-weight:900;font-size:22px}
+.logo span{color:var(--neon)}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;transition:.3s}
+.nav-links a:hover{color:var(--neon)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:0 6%;position:relative}
+.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:-1}
+.hero-bg .glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:.25}
+.g1{background:var(--neon);top:-100px;left:-100px}
+.g2{background:var(--neon2);bottom:-100px;right:-100px}
+.hero-content{max-width:700px}
+.badge{display:inline-block;padding:6px 14px;border:1px solid var(--neon);border-radius:100px;color:var(--neon);font-size:13px;font-family:'JetBrains Mono';margin-bottom:20px}
+h1{font-size:clamp(40px,7vw,72px);line-height:1.1;font-weight:900}
+h1 .line{display:block}
+h1 .green{color:var(--neon)}
+.hero p{color:var(--muted);font-size:18px;margin:20px 0 35px;line-height:1.7}
+.btns{display:flex;gap:15px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:700;transition:.3s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--neon);color:#000}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,255,136,.3)}
+.btn-ghost{border:1px solid #333;color:var(--text)}
+.btn-ghost:hover{border-color:var(--neon);color:var(--neon)}
+.stats{display:flex;gap:40px;margin-top:50px;border-top:1px solid #222;padding-top:30px}
+.stat b{font-size:32px;display:block;color:var(--neon);font-family:'JetBrains Mono'}
+.stat span{color:var(--muted);font-size:14px}
+section{padding:100px 6%}
+.section-title{font-size:42px;font-weight:900;margin-bottom:10px}
+.section-sub{color:var(--muted);margin-bottom:50px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid #222;border-radius:20px;padding:30px;transition:.3s;position:relative;overflow:hidden}
+.card:hover{border-color:var(--neon);transform:translateY(-5px)}
+.card::before{content:'';position:absolute;top:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--neon),transparent);opacity:0;transition:.3s}
+.card:hover::before{opacity:1}
+.card-icon{width:50px;height:50px;background:#0a0a0f;border:1px solid #222;border-radius:12px;display:grid;place-items:center;font-size:24px;margin-bottom:20px}
+.card h3{margin-bottom:10px}
+.card p{color:var(--muted);line-height:1.6;font-size:15px}
+.projects .card{padding:0;overflow:hidden}
+.projects .thumb{height:200px;background:linear-gradient(135deg,#12121a,#1f1f2e);display:grid;place-items:center;font-family:'JetBrains Mono';font-size:14px;color:var(--muted);border-bottom:1px solid #222}
+.projects .info{padding:25px}
+.tag{display:inline-block;background:#0a0a0f;border:1px solid #333;padding:4px 10px;border-radius:100px;font-size:12px;color:var(--muted);margin:4px 4px 0 0}
+.contact-box{background:linear-gradient(135deg,var(--card),#151525);border:1px solid #333;border-radius:24px;padding:50px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px}
+.contact-box h2{font-size:36px}
+.contact-box h2 span{color:var(--neon)}
+.phone{font-family:'JetBrains Mono';font-size:28px;font-weight:900;letter-spacing:1px}
+.phone a{color:var(--neon);text-decoration:none}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:14px;border-top:1px solid #222}
+.cursor{display:inline-block;width:12px;height:28px;background:var(--neon);margin-right:5px;animation:blink 1s infinite}
+@keyframes blink{0%,50%{opacity:1}50.1%,100%{opacity:0}}
+@media(max-width:700px){.nav-links{display:none}.stats{gap:20px}.contact-box{padding:30px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">&lt;marwan<span>.dev</span>/&gt;</div>
+  <ul class="nav-links">
+    <li><a href="#home">الرئيسية</a></li>
+    <li><a href="#services">خدماتي</a></li>
+    <li><a href="#projects">أعمالي</a></li>
+    <li><a href="#contact">تواصل</a></li>
+  </ul>
+</nav>
+
+<div class="hero" id="home">
+  <div class="hero-bg"><div class="glow g1"></div><div class="glow g2"></div></div>
+  <div class="hero-content">
+    <div class="badge">● متاح للعمل حالياً</div>
+    <h1>
+      <span class="line"> مروان محمد عيد</span>
+      <span class="line green">مطور مواقع ويب<span class="cursor"></span></span>
+    </h1>
+    <p>بحول أفكارك لموقع سريع، عصري، ويبيع. متخصص في تصميم مواقع الشركات والمتاجر الإلكترونية اللي بتخلي العميل يقول "واو".</p>
+    <div class="btns">
+      <a href="#contact" class="btn btn-primary">كلمني واتساب 🚀</a>
+      <a href="#projects" class="btn btn-ghost">شوف شغلي</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>+50</b><span>موقع تم</span></div>
+      <div class="stat"><b>100%</b><span>رضا العملاء</span></div>
+      <div class="stat"><b>24h</b><span>تسليم سريع</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <h2 class="section-title">بقدملك ايه؟</h2>
+  <p class="section-sub">مش مجرد كود، انا بقدملك حل يجيبلك عملاء</p>
+  <div class="grid">
+    <div class="card"><div class="card-icon">⚡</div><h3>مواقع سريعة جداً</h3><p>موقع يفتح في أقل من ثانية، متوافق مع جوجل و SEO 100%</p></div>
+    <div class="card"><div class="card-icon">🎨</div><h3>تصميم عصري</h3><p>تصميم UI/UX يخلي الزائر يقعد ويشتري، مش يهرب</p></div>
+    <div class="card"><div class="card-icon">📱</div><h3>متجاوب 100%</h3><p>شغال ممتاز على الموبايل والكمبيوتر والتابلت</p></div>
+    <div class="card"><div class="card-icon">🛒</div><h3>متاجر إلكترونية</h3><p>متجرك جاهز للدفع والشحن وواتساب أوتوماتيك</p></div>
+    <div class="card"><div class="card-icon">🔧</div><h3>دعم فني</h3><p>مش بسيبك بعد التسليم، متابع معاك شهر كامل مجاناً</p></div>
+    <div class="card"><div class="card-icon">🚀</div><h3>استضافة ودومين</h3><p>بظبطلك كل حاجة من الصفر لحد ما موقعك يبقى اونلاين</p></div>
+  </div>
+</section>
+
+<section id="projects" class="projects">
+  <h2 class="section-title">آخر أعمالي</h2>
+  <p class="section-sub">ده جزء من الشغل اللي عملته لعملاء من القوصية وخارجها</p>
+  <div class="grid">
+    <div class="card"><div class="thumb">E-COMMERCE PREVIEW</div><div class="info"><h3>متجر إلكتروني للملابس</h3><p>متجر كامل مع سلة ودفع</p><div style="margin-top:12px"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span></div></div></div>
+    <div class="card"><div class="thumb">LANDING PAGE PREVIEW</div><div class="info"><h3>صفحة هبوط لشركة</h3><p>صفحة بتجيب عملاء بنسبة تحويل 12%</p><div style="margin-top:12px"><span class="tag">Landing</span><span class="tag">Responsive</span></div></div></div>
+    <div class="card"><div class="thumb">PORTFOLIO PREVIEW</div><div class="info"><h3>موقع شخصي لمصور</h3><p>معرض صور تفاعلي وسريع</p><div style="margin-top:12px"><span class="tag">Gallery</span><span class="tag">Animations</span></div></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <div>
+      <h2>عندك فكرة؟ <br> <span>خلينا ننفذها حالاً</span></h2>
+      <p style="color:var(--muted);margin-top:10px">رد في أقل من 5 دقايق على الواتساب</p>
+    </div>
+    <div style="text-align:left">
+      <div class="phone"><a href="tel:01111259553">01111259553</a></div>
+      <div style="margin-top:15px;display:flex;gap:10px">
+        <a class="btn btn-primary" href="https://wa.me/201111259553?text=ازيك يا مروان عايز موقع" target="_blank">واتساب</a>
+        <a class="btn btn-ghost" href="tel:01111259553">اتصال</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Marwan Mohamed Eid - Built with ❤️ & Code</footer>
+
+<script>
+// حركة خفيفة للخلفية
+document.addEventListener('mousemove', e=>{
+  const g1=document.querySelector('.g1');
+  const x=e.clientX/20, y=e.clientY/20;
+  g1.style.transform=`translate(${x}px, ${y}px)`;
+});
+</script>
+</body>
+</html>
